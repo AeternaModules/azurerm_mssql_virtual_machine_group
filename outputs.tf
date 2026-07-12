@@ -1,3 +1,7 @@
+output "mssql_virtual_machine_groups_id" {
+  description = "Map of id values across all mssql_virtual_machine_groups, keyed the same as var.mssql_virtual_machine_groups"
+  value       = { for k, v in azurerm_mssql_virtual_machine_group.mssql_virtual_machine_groups : k => v.id }
+}
 output "mssql_virtual_machine_groups_location" {
   description = "Map of location values across all mssql_virtual_machine_groups, keyed the same as var.mssql_virtual_machine_groups"
   value       = { for k, v in azurerm_mssql_virtual_machine_group.mssql_virtual_machine_groups : k => v.location }
